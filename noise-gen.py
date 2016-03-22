@@ -15,4 +15,6 @@ from optparse import OptionParser
 
 imageLoader = ImageLoader()
 noiseImage = imageLoader.loadFromImage('in.png', 2)
-imageLoader.saveToImage('out', noiseImage, 100)
+imageLoader.saveToImage('out', noiseImage, 100, True)
+
+print("Success")
