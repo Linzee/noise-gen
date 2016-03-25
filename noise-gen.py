@@ -3,18 +3,24 @@
 
 from ImageLoader import ImageLoader
 from optparse import OptionParser
+import os.path
 
-#parser = OptionParser()
-#
-#options, optionsValues = parser.parse_args()
-#
-#if len(optionsValues) > 0:
-#    inputFile = optionsValues[0]
-#else:
-#    print "Missing input file"
+parser = OptionParser()
+parser.add_option("-i", "--input",
+                  dest="input", metavar="FILE", default='in.png',
+                  help="Change input file (default in.png)")
+                  
+parser.add_option("-o", "--output",
+                  dest="output", metavar="FILE", defult='out/',
+                  help="Change output folder (default out/)")
 
-imageLoader = ImageLoader()
-noiseImage = imageLoader.loadFromImage('in.png', 2)
-imageLoader.saveToImage('out', noiseImage, 100, True)
+options, optionsValues = parser.parse_args()
 
-print("Success")
+if not os.path.isfile(options.input):
+    print(options.input, "file is missing!")
+else:
+    imageLoader = ImageLoader()
+    noiseImage = imageLoader.loadFromImage(options.input, 2)
+    imageLoader.saveToImage(options.output, noiseImage, 100, True)
+
+    print("success")

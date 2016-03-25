@@ -63,4 +63,4 @@ class ImageLoader():
         else:
             im = im.resize((width * size, height * size), Image.NEAREST)
 
-        im.save(outputPath + "/" + name + ".png")
+        im.save(outputPath + name + ".png")
