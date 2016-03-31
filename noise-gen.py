@@ -11,7 +11,7 @@ parser.add_option("-i", "--input",
                   help="Change input file (default in.png)")
                   
 parser.add_option("-o", "--output",
-                  dest="output", metavar="FILE", defult='out/',
+                  dest="output", metavar="FILE", default='out/',
                   help="Change output folder (default out/)")
 
 options, optionsValues = parser.parse_args()
@@ -22,5 +22,5 @@ else:
     imageLoader = ImageLoader()
     noiseImage = imageLoader.loadFromImage(options.input, 2)
     imageLoader.saveToImage(options.output, noiseImage, 100, True)
-
+    
     print("success")
